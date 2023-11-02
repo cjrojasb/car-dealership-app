@@ -23,7 +23,7 @@ export class CarsController {
     return this.carsService.getCars();
   }
 
-  @Get('/:id')
+  @Get(':id')
   // for parse path string param to number ParseIntPipe
   // @Param('id', ParseIntPipe) id: number
   getCar(@Param('id', ParseUUIDPipe) id: string): Car {
@@ -37,7 +37,7 @@ export class CarsController {
     return this.carsService.create(createCarDto);
   }
 
-  @Patch('/:id')
+  @Patch(':id')
   update(
     @Param('id', ParseUUIDPipe) id: string,
     @Body() updateCarDto: UpdateCarDto,
@@ -45,7 +45,7 @@ export class CarsController {
     return this.carsService.update(id, updateCarDto);
   }
 
-  @Delete('/:id')
+  @Delete(':id')
   delete(@Param('id', ParseUUIDPipe) id: string): void {
     return this.carsService.delete(id);
   }
